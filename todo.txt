@@ -1,0 +1,22 @@
+# Dependencies
++ Express
++ ejs
++ mongodb
++ mongoose
++ connect-mongo
+
+# Directory Structure
++ controllers
++ models
++ statics
+
+# Model
+- Create/Update Device Model{{"_file":"D:/Projects/iotProject/models/device_model.js"}}
+- Conenct to DB
+- Retrive an Object
+
+# Testing
+- Mocha Package
+- Should JS
+- SuperTest JS
+- https://www.youtube.com/watch?v=JZmL1Rihpt8
