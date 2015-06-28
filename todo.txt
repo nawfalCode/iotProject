@@ -15,8 +15,12 @@
 - Conenct to DB
 - Retrive an Object
 
+# Database configration
+- retrive the first element only ( getDevice){{"_file":"D:/Projects/iotProject/db_con/dbConnect.js"}}
+
 # Testing
 - Mocha Package
 - Should JS
 - SuperTest JS
 - https://www.youtube.com/watch?v=JZmL1Rihpt8
+
