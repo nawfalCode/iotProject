@@ -1,19 +1,16 @@
-"use strict";
-
 // call mongodb driver
 var mongoDb = require('mongodb');
 
 // Global DB
 var iotDB = null;
+var exports=module.exports;
 
-//db url and db
-var url = 'mongodb://localhost:27017/iotdb';
 /**
  * connects to database
  * @param   {String} url link to database
  * @returns {Object} db and err objectd
  */
-module.connects = function(url) {
+exports.connect = function(url) {
     //Create Mongo Client
     var mongoClient = mongoDb.MongoClient;
     mongoClient.connect(url, function(err, db) {
@@ -42,7 +39,7 @@ module.connects = function(url) {
  * @param   {String} collectionName name of collection
  * @returns {Object} error object
  */
-module.insertDevice = function(data, db, collectionName) {
+exports.insertDevice = function(data, db, collectionName) {
 
     var collection = db.collection(collectionName);
     collection.insert(data, function(err, result) {
@@ -65,7 +62,7 @@ module.insertDevice = function(data, db, collectionName) {
  * @param   {Sting}    collectionName name of the collection
  * @returns {Object} error
  */
-module.updateDevice = function(deviceId, device, db, collectionName) {
+exports.updateDevice = function(deviceId, device, db, collectionName) {
     var collection = db.collection(collectionName);
     collection.update({
         devicId: deviceId
@@ -89,7 +86,7 @@ module.updateDevice = function(deviceId, device, db, collectionName) {
  * @param   {String} collectionName name of the collection
  * @returns {Object} result:array of objects,error Obejct
  */
-module.getDevice = function(deviceId, db, collectionName) {
+exports.getDevice = function(deviceId, db, collectionName) {
     var collection = db.collection(collectionName);
     collection.find({
         deviceId: deviceId

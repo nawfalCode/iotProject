@@ -5,12 +5,18 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
-// call mongodb driver
-var mongoDb = require('mongodb');
-
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
+//
+var dbconnection = require('./dbtools/dbConnect')
+
+//global db variable
+var db = null;
+
+//db url and db
+var URL = 'mongodb://localhost:27017/iotdb';
+
 
 var app = express();
 
@@ -39,15 +45,17 @@ app.use('/', routes);
 app.use('/users', users);
 
 /**Added on 25/06/2015 @ 6:09am
-*  by Nawfal 
-*
-*/
+ *  by Nawfal 
+ *
+ */
 
 app.use('/static', express.static('./static'));
 app.use('/images', express.static('./images'));
 app.use('/lib', express.static('./lib'));
 
-
+console.log('before connection');
+db = dbconnection.connect(URL);
+console.log('After connection');
 
 
 // catch 404 and forward to error handler
