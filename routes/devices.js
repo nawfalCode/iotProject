@@ -3,12 +3,36 @@
  */
 
 var Device = require('../models/device_model');
+var Msg = require('../models/device_msg');
 var express = require('express');
 
 //configure routes
 
 var router = express.Router();
 
+//Msg Routes
+router.route('/msg')
+    .get(function(req, res) {
+        Msg.find(function(err, msgs) {
+            if (err)
+                res.send(err);
+            res.json(msgs)
+        })
+    })
+    .post(function(req, res) {
+        var msg = new Msg(req.body);
+        msg.save(function(err) {
+            if (err)
+                res.send(err);
+            res.send({
+                message: 'a new message has bees added'
+            });
+        })
+    });
+
+
+
+//Device Routes
 router.route('/devices')
     .get(function(req, res) {
         Device.find(function(err, devices) {
@@ -20,7 +44,7 @@ router.route('/devices')
 
 .post(function(req, res) {
     console.log(req.body);
-    req.body.deviceId=Math.random();
+    req.body.deviceId = Math.random();
     var device = new Device(req.body);
 
     device.save(function(err) {

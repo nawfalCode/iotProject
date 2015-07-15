@@ -4,6 +4,8 @@
  var deviceSchema = new Schema({
      //Device ID: UUID format
      deviceId: Number,
+     //Creatation Date/Time
+     dateCreated:String,
      // Device description
      deviceDescription: String,
      //List of keywords (string)
