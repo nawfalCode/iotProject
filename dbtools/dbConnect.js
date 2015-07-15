@@ -3,24 +3,28 @@ var mongoDb = require('mongodb');
 
 // Global DB
 var iotDB = null;
-var exports=module.exports;
+var exports = module.exports;
 
 /**
  * connects to database
  * @param   {String} url link to database
  * @returns {Object} db and err objectd
  */
-exports.connect = function(url) {
+exports.connect = function(url, callfunc) {
     //Create Mongo Client
+    console.log('Start conncting');
     var mongoClient = mongoDb.MongoClient;
     mongoClient.connect(url, function(err, db) {
+        console.log('got connction');
         if (err) {
+
             return ({
                 db: db,
                 err: err
             });
-            console.log('Unable to connect to DB');
+
         } else {
+            callfunc(db);
             return ({
                 db: db,
                 err: err
