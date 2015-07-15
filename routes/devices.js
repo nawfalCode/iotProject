@@ -44,7 +44,8 @@ router.route('/devices')
 
 .post(function(req, res) {
     console.log(req.body);
-    req.body.deviceId = Math.random();
+    //Generate a random ID // This is Temprory // UUID sholf be used
+    req.body.deviceId = Math.floor(Math.random()*100);
     var device = new Device(req.body);
 
     device.save(function(err) {
