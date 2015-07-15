@@ -20,6 +20,7 @@ router.route('/devices')
 
 .post(function(req, res) {
     console.log(req.body);
+    req.body.deviceId=Math.random();
     var device = new Device(req.body);
 
     device.save(function(err) {
