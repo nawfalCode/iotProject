@@ -20,6 +20,7 @@ router.route('/msg')
         })
     })
     .post(function(req, res) {
+    
         var msg = new Msg(req.body);
         msg.save(function(err) {
             if (err)
