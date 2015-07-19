@@ -7,6 +7,7 @@
 var app = require('../app');
 var debug = require('debug')('restfull:server');
 var http = require('http');
+var io= require('socket.io');
 
 /**
  * Get port from environment and store in Express.
@@ -32,6 +33,21 @@ server.on('listening', onListening);
 /**
  * Normalize a port into a number, string, or false.
  */
+
+
+/**
+ *  Create Socket.io
+ */
+
+var socket=io.listen(server);
+socket.on('connection',function () {
+  console.log('We got a connection Connected...');
+  // body...
+})
+
+
+
+
 
 function normalizePort(val) {
   var port = parseInt(val, 10);
