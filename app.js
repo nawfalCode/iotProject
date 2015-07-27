@@ -33,6 +33,4 @@ var dbName = "iotdb";
 var URL = 'mongodb://localhost:27017/' + dbName;
 mongoose.connect(URL);
 
-var io = require('socket.io').lis
-
 module.exports = app;
