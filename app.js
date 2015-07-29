@@ -12,7 +12,7 @@ app.use(bodyParser.urlencoded({
 }));
 
 /**
- * Set Html Engin
+ * Set Html Engine
  */
 
 app.engine('.html', require('ejs').__express);

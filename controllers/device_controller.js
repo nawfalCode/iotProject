@@ -7,15 +7,13 @@ var Device=mongoose.model('device');
  * @param {Object} res response object
  */
 exports.post = function(req, res) {
-        console.log('BEgin Post');
         new Device({
             deviceId: req.deviceId,
             deviceType: req.deviceType
         }).save(function(err) {
             console.log(err);
         });
-        console.log('end COnsole');
-    }
+    };
     /**
      * returns all devices
      * @param {[[Type]]} req [[Description]]
