@@ -117,7 +117,5 @@ router.route('/devices/:id')
             });
         });
     });
-function1 dun(){
 
-}
 module.exports = router;

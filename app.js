@@ -6,6 +6,10 @@ var app = express();
 var io = require('socket.io');
 
 
+//todo Add WebSocket as alternative to Socket.io
+// todo: define relative devices
+// todo: define interested devices
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
