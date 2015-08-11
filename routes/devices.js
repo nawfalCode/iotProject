@@ -20,7 +20,6 @@ router.route('/msg')
             res.json(msgs)
         })
     })
-    //todo: Check for the device ID b4 adding its message
     .post(function (req, res) {
         var msg = new Msg(req.body);
         /**
@@ -118,5 +117,7 @@ router.route('/devices/:id')
             });
         });
     });
+function1 dun(){
 
+}
 module.exports = router;
